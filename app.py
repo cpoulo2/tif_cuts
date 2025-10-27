@@ -103,15 +103,9 @@ def main():
 
         select_ward = st.selectbox("**Select A Ward**", options=ward['ward'].unique().tolist(),index=16,help="Left click on a column name to sort.")
 
-        col1,col2 = st.columns(2)
+        st.image(f"ward_{select_ward}.png")
 
-        with col1:
-
-            st.image(f"ward_{select_ward}.png")
-
-        with col2:
-
-            st.write(f"Name of {select_ward} Alder.")
+        st.write(f"**Name of {select_ward} Alder.**")
 
         ward_filtered = ward[ward['ward'] == select_ward]
 
