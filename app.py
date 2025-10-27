@@ -105,7 +105,7 @@ def main():
 
         st.image(f"ward_{select_ward}.png")
 
-        st.write(f"**Name of {select_ward} Alder.**")
+        st.write(f"**Name of the Ward {select_ward} Alder.**")
 
         ward_filtered = ward[ward['ward'] == select_ward]
 
