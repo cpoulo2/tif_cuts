@@ -180,7 +180,7 @@ def main():
 
     **Data sources**
 
-    Fiscal year 2026 Budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demongraphics are from CPS's Racial/Ethnic Report for school year 2025.     
+    Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demongraphics are from CPS's Racial/Ethnic Report for school year 2025.     
                 
 """, unsafe_allow_html=True)
 
