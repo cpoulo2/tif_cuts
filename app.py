@@ -172,17 +172,21 @@ def main():
         hide_index=True)
 
     st.markdown("""
-    **Methodology**
-                
-    School-level TIF surplus revenue is calculated by multiplying the share of the City of Chicago’s total declared TIF surplus allocated to CPS by each school’s FY26 budget share (that school’s FY26 budget as a percentage of the total CPS school budgets). We provide two estimates: one based on Mayor Brandon Johnson’s historic proposed surplus—$552 million directed to CPS—and another based on the Chicago Board of Education’s budgeted surplus.
-                
-    Estimated mid-year position loss is school-level TIF surplus revenue divided by 100,000 (the average per position dollar amount) and multiplied by 2. We multiply by 2 because it takes twice as many position cuts to get the savings of one. The mid-year position loss uses the CBOE's budgeted TIF surplus.
+    <style>
+    .small-text {
+        font-size: 0.8em; /* You can adjust this to 0.7em or 0.9em as needed */
+        line-height: 1.4;
+    }
+    </style>
 
-    **Data sources**
-
-    Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demongraphics are from CPS's Racial/Ethnic Report for school year 2025.     
-                
-""", unsafe_allow_html=True)
+    <div class="small-text">
+    <b>Methodology</b><br><br>
+    School-level TIF surplus revenue is calculated by multiplying the share of the City of Chicago’s total declared TIF surplus allocated to CPS by each school’s FY26 budget share (that school’s FY26 budget as a percentage of the total CPS budget for schools). We provide two estimates: one based on Mayor Brandon Johnson’s historic proposed surplus—$552 million directed to CPS—and another based on the Chicago Board of Education’s budgeted surplus.<br><br>
+    Estimated mid-year position loss is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to get the savings of one. The mid-year position loss uses the CBOE's budgeted TIF surplus.<br><br>
+    <b>Data sources</b><br><br>
+    Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
