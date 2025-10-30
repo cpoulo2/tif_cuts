@@ -158,7 +158,7 @@ def main():
 
         # Sort by TIF surplus descending
 
-        ward_filtered = ward_filtered.sort_values(by="TIF Surplus ($552m)", ascending=False)
+        ward_filtered = ward_filtered.sort_values(by="What your school could gain", ascending=False)
 
         st.markdown(f"""<b>{alder}'s Ward</b> ({ward}) will stand to lose *at least* **${ward_filtered['TIF Surplus ($387m)'].iloc[0]:,.0f}** and **{ward_filtered['Mid Year Cuts'].iloc[0]} positions** affecting **{ward_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{ward_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """, unsafe_allow_html=True)
