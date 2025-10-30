@@ -54,7 +54,7 @@ def main():
         st.subheader("School level view 🏫")
 
 #        schools = df[['unit_name','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','ward','alder_first_last','student_count','non_white_per']]
-        schools = df[['unit_name','tif_surplus_387_m','mid_year_cuts','ward','alder_first_last','student_count','non_white_per']]
+        schools = df[['unit_name','tif_surplus_552_m','mid_year_cuts','ward','alder_first_last','student_count','non_white_per']]
 
         selected_schools = st.multiselect("**Select A School or Schools**", options=schools['unit_name'].unique().tolist(),help="Use the drop-down menu or begin typing a school name to select. Left-click on column names to sort.")
 
@@ -69,52 +69,61 @@ def main():
 
 
 #        schools_filtered.columns = ['School Name',"TIF Surplus ($552m)", "TIF Surplus ($387m)","Mid Year Cuts",'Ward',"Alder","Number of Students","Percent Non-White"]
-        schools_filtered.columns = ['School Name',"What your school could gain","What your school could lose",'Ward',"Alder","Number of Students","Percent Non-White"]
+        schools_filtered.columns = ['School Name',"Dollars lost","Positions cut",'Ward',"Alder","Number of Students","Percent Non-White"]
 
         if selected_schools != []:
             n = len(schools_filtered['School Name'])
             if n == 1:
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[0]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[0]:,.0f}** and **{schools_filtered['Positions cut'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """,unsafe_allow_html=True)
             elif n == 2:
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[0]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[0]:,.0f}** and **{schools_filtered['Positions cut'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[1]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[1]:,.0f}** and **{schools_filtered['Positions cut'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
 """,unsafe_allow_html=True)
             elif n == 3:
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[0]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[0]:,.0f}** and **{schools_filtered['Positions cut'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[1]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[1]:,.0f}** and **{schools_filtered['Positions cut'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[2]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[2]:,.0f}** and **{schools_filtered['Positions cut'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
 """,unsafe_allow_html=True)
             elif n == 4:
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[0]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[0]:,.0f}** and **{schools_filtered['Positions cut'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """,unsafe_allow_html=True)            
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[1]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[1]:,.0f}** and **{schools_filtered['Positions cut'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[2]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[2]:,.0f}** and **{schools_filtered['Positions cut'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[3]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[3]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[3]} positions** affecting **{schools_filtered['Number of Students'].iloc[3]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[3]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[3]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[3]:,.0f}** and **{schools_filtered['Positions cut'].iloc[3]} positions** affecting **{schools_filtered['Number of Students'].iloc[3]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[3]:.0%}** are non-white.
 """,unsafe_allow_html=True)
             elif n == 5:
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[0]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[0]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[0]:,.0f}** and **{schools_filtered['Positions cut'].iloc[0]} positions** affecting **{schools_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """,unsafe_allow_html=True)            
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[1]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[1]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[1]:,.0f}** and **{schools_filtered['Positions cut'].iloc[1]} positions** affecting **{schools_filtered['Number of Students'].iloc[1]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[1]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[2]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[2]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[2]:,.0f}** and **{schools_filtered['Positions cut'].iloc[2]} positions** affecting **{schools_filtered['Number of Students'].iloc[2]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[2]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[3]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[3]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[3]} positions** affecting **{schools_filtered['Number of Students'].iloc[3]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[3]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[3]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[3]:,.0f}** and **{schools_filtered['Positions cut'].iloc[3]} positions** affecting **{schools_filtered['Number of Students'].iloc[3]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[3]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-                st.markdown(f"""**{schools_filtered['School Name'].iloc[4]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[4]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[4]} positions** affecting **{schools_filtered['Number of Students'].iloc[4]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[4]:.0%}** are non-white.
+                st.markdown(f"""**{schools_filtered['School Name'].iloc[4]}** will stand to lose *at least* **${schools_filtered['Dollars lost'].iloc[4]:,.0f}** and **{schools_filtered['Positions cut'].iloc[4]} positions** affecting **{schools_filtered['Number of Students'].iloc[4]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[4]:.0%}** are non-white.
 """,unsafe_allow_html=True)
                 
         st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
         st.markdown(" ")
+
+        if selected_schools == []:
+            st.markdown(f"""<center> <b> What a NO vote costs these schools</b></center>""", unsafe_allow_html=True)
+        if selected_schools != []:
+            n = len(schools_filtered['School Name'])
+            if n == 1:
+                st.markdown(f"""<center> <b> What a NO vote costs this school</b></center>""", unsafe_allow_html=True)
+            else:
+                st.markdown(f"""<center> <b> What a NO vote costs these schools</b></center>""", unsafe_allow_html=True)
         st.dataframe(
             schools_filtered.style.format({
 #        "TIF Surplus ($552m)": "${:,.0f}",
-        "What your school could gain": "${:,.0f}",
+        "Dollars lost": "${:,.0f}",
         "Percent Non-White": "{:.0%}"}),
         hide_index=True)
 
@@ -136,19 +145,19 @@ def main():
         ward = ward_filtered['ward'].iloc[0]
 
 #        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','White #','non_white_per']]
-        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_387_m','mid_year_cuts','student_count','White #','non_white_per']]
+        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','mid_year_cuts','student_count','White #','non_white_per']]
 
         # Create totals column
 
         totals = ward_filtered.copy()
         totals['non_white'] = totals['student_count'] - totals['White #']
 #        totals = totals[['ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white']]
-        totals = totals[['ward','tif_surplus_387_m','mid_year_cuts','student_count','non_white']]
+        totals = totals[['ward','tif_surplus_552_m','mid_year_cuts','student_count','non_white']]
         totals = totals.groupby('ward').sum().reset_index()
         totals['non_white_per'] = totals['non_white'] / totals['student_count']
 
 #        totals = totals[['tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
-        totals = totals[['tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
+        totals = totals[['tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
 
         totals['unit_name'] = f'Ward {ward} Total'
 
@@ -157,14 +166,14 @@ def main():
         ward_filtered = pd.concat([ward_filtered, totals], ignore_index=True)
 
 #        ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
-        ward_filtered = ward_filtered[['unit_name','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
-        ward_filtered.columns = ['Name',"What your school could gain","What your school could lose","Number of Students","Percent Non-White"]
+        ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
+        ward_filtered.columns = ['Name',"Dollars lost","Positions cut","Number of Students","Percent Non-White"]
 
         # Sort by TIF surplus descending
 
-        ward_filtered = ward_filtered.sort_values(by="What your school could gain", ascending=False)
+        ward_filtered = ward_filtered.sort_values(by="Dollars lost", ascending=False)
 
-        st.markdown(f"""<b>{alder}'s Ward</b> ({ward}) will stand to lose *at least* **${ward_filtered['What your school could gain'].iloc[0]:,.0f}** and **{ward_filtered['What your school could lose'].iloc[0]} positions** affecting **{ward_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{ward_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
+        st.markdown(f"""<b>{alder}'s Ward</b> ({ward}) will stand to lose *at least* **${ward_filtered['Dollars lost'].iloc[0]:,.0f}** and **{ward_filtered['Positions cut'].iloc[0]} positions** affecting **{ward_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{ward_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
 """, unsafe_allow_html=True)
 
         # Highlight Ward Total row
@@ -175,10 +184,11 @@ def main():
         ward_total_name = f'Ward {ward} Total'
         st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
         st.markdown(" ")
+        st.markdown(f"""<center> <b> What a NO vote costs these schools</b></center>""", unsafe_allow_html=True)
         st.dataframe(
             ward_filtered.style.apply(lambda x: highlight_row(x) if ward_filtered.loc[x.name, 'Name'] == ward_total_name else ['']*len(x), axis=1).format({
 #        "TIF Surplus ($552m)": "${:,.0f}",
-        "What your school could gain": "${:,.0f}",
+        "Dollars lost": "${:,.0f}",
         "Percent Non-White": "{:.0%}"}),
         hide_index=True)
 
@@ -192,8 +202,8 @@ def main():
 
     <div class="small-text">
     <b>Methodology</b><br><br>
-    School-level TIF surplus revenue is calculated by multiplying the share of the City of Chicago’s total declared TIF surplus allocated to CPS by each school’s FY26 budget share (that school’s FY26 budget as a percentage of the total CPS budget for schools). We provide two estimates: one based on Mayor Brandon Johnson’s historic proposed surplus—$552 million directed to CPS—and another based on the Chicago Board of Education’s budgeted surplus.<br><br>
-    Estimated mid-year position loss is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to get the savings of one. The mid-year position loss uses the CBOE's budgeted TIF surplus.<br><br>
+    <i>“Dollars lost”</i> is the potential TIF surplus revenue that a no vote will withhold from schools. It is calculated by multiplying Mayor Brandon Johnson’s historic TIF surplus of $552 million by each school’s budget as a percentage of the total CPS budget for schools.<br><br>
+    <i>“Positions cut”</i> are the potential mid-year cuts that a no vote would make necessary to balance CPS’s budget. It is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to get the savings of one. We chose to use the Chicago Board of Education’s budgeted $387 million in TIF surplus revenue as the basis of these cuts.<br><br>
     <b>Data sources</b><br><br>
     Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
     </div>
