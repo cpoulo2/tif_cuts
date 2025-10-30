@@ -66,6 +66,8 @@ def main():
 
             schools_filtered = schools[schools['unit_name'].isin(selected_schools)]
 
+
+
 #        schools_filtered.columns = ['School Name',"TIF Surplus ($552m)", "TIF Surplus ($387m)","Mid Year Cuts",'Ward',"Alder","Number of Students","Percent Non-White"]
         schools_filtered.columns = ['School Name',"What your school could gain","What your school could lose",'Ward',"Alder","Number of Students","Percent Non-White"]
 
@@ -106,7 +108,9 @@ def main():
 """,unsafe_allow_html=True)
                 st.markdown(f"""**{schools_filtered['School Name'].iloc[4]}** will stand to lose *at least* **${schools_filtered['What your school could gain'].iloc[4]:,.0f}** and **{schools_filtered['What your school could lose'].iloc[4]} positions** affecting **{schools_filtered['Number of Students'].iloc[4]:,.0f}** students of which **{schools_filtered['Percent Non-White'].iloc[4]:.0%}** are non-white.
 """,unsafe_allow_html=True)
-
+                
+        st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
+        st.markdown(" ")
         st.dataframe(
             schools_filtered.style.format({
 #        "TIF Surplus ($552m)": "${:,.0f}",
@@ -169,7 +173,8 @@ def main():
             return ['background-color: yellow'] * len(s)
         
         ward_total_name = f'Ward {ward} Total'
-        
+        st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
+        st.markdown(" ")
         st.dataframe(
             ward_filtered.style.apply(lambda x: highlight_row(x) if ward_filtered.loc[x.name, 'Name'] == ward_total_name else ['']*len(x), axis=1).format({
 #        "TIF Surplus ($552m)": "${:,.0f}",
