@@ -138,78 +138,89 @@ def main():
         # Sort ward options ascending
         ward = ward.sort_values(by='ward')
 
-        select_ward = st.selectbox("**Select A Ward**", options=ward['ward'].unique().tolist(),index=32,help="Left click on a column name to sort.")
+        wards = ward['ward'].unique().tolist()
+        wards.append(42)
+
+        wards = sorted(wards)
+
+        select_ward = st.selectbox("**Select A Ward**", options=wards,index=32,help="Left click on a column name to sort.")
 
         ward_filtered = ward[ward['ward'] == select_ward]
 
-        alder = ward_filtered['alder_first_last'].iloc[0]
-        ward = ward_filtered['ward'].iloc[0]
+        if select_ward == 42:
 
-#        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','White #','non_white_per']]
-        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','mid_year_cuts','student_count','White #','non_white_per']]
+            st.markdown(f""" Alder <b>Brendan Reilly's</b> Ward (42) has no public schools in it.""",unsafe_allow_html=True)
 
-        # Create totals column
+        else:
 
-        totals = ward_filtered.copy()
-        totals['non_white'] = totals['student_count'] - totals['White #']
-#        totals = totals[['ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white']]
-        totals = totals[['ward','tif_surplus_552_m','mid_year_cuts','student_count','non_white']]
-        totals = totals.groupby('ward').sum().reset_index()
-        totals['non_white_per'] = totals['non_white'] / totals['student_count']
+            alder = ward_filtered['alder_first_last'].iloc[0]
+            ward = ward_filtered['ward'].iloc[0]
 
-#        totals = totals[['tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
-        totals = totals[['tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
+    #        ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','White #','non_white_per']]
+            ward_filtered = ward_filtered[['unit_name','ward','tif_surplus_552_m','mid_year_cuts','student_count','White #','non_white_per']]
 
-        totals['unit_name'] = f'Ward {ward} Total'
+            # Create totals column
 
-        # Concatenate totals to ward_filtered
+            totals = ward_filtered.copy()
+            totals['non_white'] = totals['student_count'] - totals['White #']
+    #        totals = totals[['ward','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white']]
+            totals = totals[['ward','tif_surplus_552_m','mid_year_cuts','student_count','non_white']]
+            totals = totals.groupby('ward').sum().reset_index()
+            totals['non_white_per'] = totals['non_white'] / totals['student_count']
 
-        ward_filtered = pd.concat([ward_filtered, totals], ignore_index=True)
+    #        totals = totals[['tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
+            totals = totals[['tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
 
-#        ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
-        ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
-        ward_filtered.columns = ['Name',"Dollars Lost","Positions Cut","Number of Students","Percent Non-White"]
+            totals['unit_name'] = f'Ward {ward} Total'
 
-        # Sort by TIF surplus descending
+            # Concatenate totals to ward_filtered
 
-        ward_filtered = ward_filtered.sort_values(by="Dollars Lost", ascending=False)
+            ward_filtered = pd.concat([ward_filtered, totals], ignore_index=True)
 
-        st.markdown(f""" Schools in Alder <b>{alder}'s</b> Ward ({ward}) will stand to lose **${ward_filtered['Dollars Lost'].iloc[0]:,.0f}** and **{ward_filtered['Positions Cut'].iloc[0]} positions**. This will affect **{ward_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{ward_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
-""", unsafe_allow_html=True)
+    #        ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','tif_surplus_387_m','mid_year_cuts','student_count','non_white_per']]
+            ward_filtered = ward_filtered[['unit_name','tif_surplus_552_m','mid_year_cuts','student_count','non_white_per']]
+            ward_filtered.columns = ['Name',"Dollars Lost","Positions Cut","Number of Students","Percent Non-White"]
 
-        # Highlight Ward Total row
+            # Sort by TIF surplus descending
 
-        def highlight_row(s):
-            return ['background-color: yellow'] * len(s)
-        
-        ward_total_name = f'Ward {ward} Total'
-        st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
-        st.markdown(" ")
-        st.markdown(f"""<center> <b> What a NO vote costs these schools</b></center>""", unsafe_allow_html=True)
-        st.dataframe(
-            ward_filtered.style.apply(lambda x: highlight_row(x) if ward_filtered.loc[x.name, 'Name'] == ward_total_name else ['']*len(x), axis=1).format({
-#        "TIF Surplus ($552m)": "${:,.0f}",
-        "Dollars Lost": "${:,.0f}",
-        "Number of Students" : "{:,.0f}",
-        "Percent Non-White": "{:.0%}"}),
-        hide_index=True)
+            ward_filtered = ward_filtered.sort_values(by="Dollars Lost", ascending=False)
 
-    st.markdown("""
-    <style>
-    .small-text {
-        font-size: 0.8em; /* You can adjust this to 0.7em or 0.9em as needed */
-        line-height: 1.4;
-    }
-    </style>
-
-    <div class="small-text">
-    <b>Methodology</b><br><br>
-    <i>“Dollars Lost”</i> refers to the potential TIF surplus revenue that a “no” vote would withhold from schools. It is calculated by multiplying Mayor Brandon Johnson’s historic TIF surplus—of which $552 million is allocated to CPS—by each school’s budget share (that school’s budget as a percentage of the total CPS budget for schools).<br><br>
-    <i>“Positions Cut”</i> refers to the potential mid-year cuts that a “no” vote would make necessary to balance CPS’s budget. It is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to achieve the savings of one. These calculations use the Chicago Board of Education’s budgeted $387 million in TIF surplus revenue as the basis for the cuts.<br><br>
-    <b>Data sources</b><br><br>
-    Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
-    </div>
+            st.markdown(f""" Schools in Alder <b>{alder}'s</b> Ward ({ward}) will stand to lose **${ward_filtered['Dollars Lost'].iloc[0]:,.0f}** and **{ward_filtered['Positions Cut'].iloc[0]} positions**. This will affect **{ward_filtered['Number of Students'].iloc[0]:,.0f}** students of which **{ward_filtered['Percent Non-White'].iloc[0]:.0%}** are non-white.
     """, unsafe_allow_html=True)
+
+            # Highlight Ward Total row
+
+            def highlight_row(s):
+                return ['background-color: yellow'] * len(s)
+            
+            ward_total_name = f'Ward {ward} Total'
+            st.markdown(f"""<center>✊ <b>Take action!</b> 📢 <a href="https://www.ctulocal1.org/posts/alder-letters-budget-2025">Tell your Alder to vote YES for TIF surplus</a>!</center>""", unsafe_allow_html=True)
+            st.markdown(" ")
+            st.markdown(f"""<center> <b> What a NO vote costs these schools</b></center>""", unsafe_allow_html=True)
+            st.dataframe(
+                ward_filtered.style.apply(lambda x: highlight_row(x) if ward_filtered.loc[x.name, 'Name'] == ward_total_name else ['']*len(x), axis=1).format({
+    #        "TIF Surplus ($552m)": "${:,.0f}",
+            "Dollars Lost": "${:,.0f}",
+            "Number of Students" : "{:,.0f}",
+            "Percent Non-White": "{:.0%}"}),
+            hide_index=True)
+
+        st.markdown("""
+        <style>
+        .small-text {
+            font-size: 0.8em; /* You can adjust this to 0.7em or 0.9em as needed */
+            line-height: 1.4;
+        }
+        </style>
+
+        <div class="small-text">
+        <b>Methodology</b><br><br>
+        <i>“Dollars Lost”</i> refers to the potential TIF surplus revenue that a “no” vote would withhold from schools. It is calculated by multiplying Mayor Brandon Johnson’s historic TIF surplus—of which $552 million is allocated to CPS—by each school’s budget share (that school’s budget as a percentage of the total CPS budget for schools).<br><br>
+        <i>“Positions Cut”</i> refers to the potential mid-year cuts that a “no” vote would make necessary to balance CPS’s budget. It is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to achieve the savings of one. These calculations use the Chicago Board of Education’s budgeted $387 million in TIF surplus revenue as the basis for the cuts.<br><br>
+        <b>Data sources</b><br><br>
+        Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
+        </div>
+        """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
