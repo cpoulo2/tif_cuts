@@ -36,57 +36,20 @@ def main():
 
     # Main app
 
-    st.set_page_config(
-        page_title="Protecting Chicago Schools Calculator", 
-        layout="centered",
-        page_icon="🏫",
-        initial_sidebar_state="collapsed"
+    # st.set_page_config(
+    #     page_title="Protecting Chicago Schools Calculator", 
+    #     layout="centered",
+    #     page_icon="🏫",
+    #     initial_sidebar_state="collapsed"
+    # )
+
+    st.html(
+    """<head>
+    <title>Title of the document</title>
+    </head>"""
     )
     st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
-
-     # Add meta tags using components.html (alternative method)
-    import streamlit.components.v1 as components
-
-    components.html("""
-<script>
-    // Add meta tags to head
-    var head = document.getElementsByTagName('head')[0];
-    
-    // Image meta tags
-    var linkTag = document.createElement('link');
-    linkTag.rel = 'image_src';
-    linkTag.href = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s';
-    head.appendChild(linkTag);
-    
-    // Open Graph tags
-    var ogImage = document.createElement('meta');
-    ogImage.setAttribute('property', 'og:image');
-    ogImage.content = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s';
-    head.appendChild(ogImage);
-    
-    var ogTitle = document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.content = 'Protecting Chicago Schools Calculator';
-    head.appendChild(ogTitle);
-    
-    var ogDesc = document.createElement('meta');
-    ogDesc.setAttribute('property', 'og:description');
-    ogDesc.content = 'See how much TIF surplus revenue each school would lose with a no vote and how many positions could be cut mid-year.';
-    head.appendChild(ogDesc);
-    
-    // Twitter tags
-    var twitterCard = document.createElement('meta');
-    twitterCard.setAttribute('name', 'twitter:card');
-    twitterCard.content = 'summary_large_image';
-    head.appendChild(twitterCard);
-    
-    var twitterImage = document.createElement('meta');
-    twitterImage.setAttribute('name', 'twitter:image');
-    twitterImage.content = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s';
-    head.appendChild(twitterImage);
-</script>
-""", height=0)
 
     st.markdown("""
     Mayor Brandon Johnson's **Protecting Chicago** budget delivers an historic half a billion dollar TIF surplus to our schools. A “no” vote will withhold these resources from our classrooms. Use our <i>Protecting Chicago Schools Calculator</i> to see how much TIF surplus revenue each school would lose with a "no" vote and how many positions could be cut mid-year. Look it up by school or ward, and then [tell your Alder](https://www.ctulocal1.org/posts/alder-letters-budget-2025): "vote <b>yes</b> for our students!"      
