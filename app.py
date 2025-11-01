@@ -38,6 +38,23 @@ def main():
 
     st.set_page_config(page_title="Protecting Chicago Schools Calculator", layout="centered")
 
+    # Add meta tags for social media previews and thumbnails
+    st.markdown("""
+    <head>
+        <link rel="image_src" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s">
+        <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:title" content="Protecting Chicago Schools Calculator">
+        <meta property="og:description" content="See how much TIF surplus revenue each school would lose with a 'no' vote and how many positions could be cut mid-year.">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s">
+        <meta name="twitter:title" content="Protecting Chicago Schools Calculator">
+        <meta name="twitter:description" content="See how much TIF surplus revenue each school would lose with a 'no' vote and how many positions could be cut mid-year.">
+    </head>
+    """, unsafe_allow_html=True)
+
     st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
 
