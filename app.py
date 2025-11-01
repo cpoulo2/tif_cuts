@@ -43,12 +43,9 @@ def main():
     #     initial_sidebar_state="collapsed"
     # )
 
-    st.html(
-    """<head>
-    <title>Title of the document</title>
-    </head>"""
-    )
-    st.header("Protecting Chicago Schools Calculator")
+    st.image("logo.png",width="stretch")
+
+#    st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
 
     st.markdown("""
