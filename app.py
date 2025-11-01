@@ -36,7 +36,7 @@ def main():
 
     # Main app
 
-    st.set_page_config(page_title="TIF Surplus Tool", layout="centered")
+    st.set_page_config(page_title="Protecting Chicago Schools Calculator", layout="centered")
 
     st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
