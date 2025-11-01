@@ -36,12 +36,12 @@ def main():
 
     # Main app
 
-    # st.set_page_config(
-    #     page_title="Protecting Chicago Schools Calculator", 
-    #     layout="centered",
-    #     page_icon="🏫",
-    #     initial_sidebar_state="collapsed"
-    # )
+    st.set_page_config(
+        page_title="Protecting Chicago Schools Calculator", 
+        layout="centered",
+        page_icon="🏫",
+        initial_sidebar_state="collapsed"
+    )
 
     st.image("logo.png",width="stretch")
 
