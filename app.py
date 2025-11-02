@@ -36,6 +36,10 @@ def main():
 
     # Main app
 
+    st.html(
+        """<head><meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s"/>"""
+    )
+
     st.set_page_config(
         page_title="Protecting Chicago Schools Calculator", 
         layout="centered",
