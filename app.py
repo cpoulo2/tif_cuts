@@ -36,10 +36,6 @@ def main():
 
     # Main app
 
-    st.html(
-        """<head><meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvCLZKOHgiAi-HOVTJbbGYamQYov-EQ0eaA&s"/>"""
-    )
-
     st.set_page_config(
         page_title="Protecting Chicago Schools Calculator", 
         layout="centered",
@@ -53,7 +49,7 @@ def main():
     st.subheader("What a 'No' Vote Costs Our Schools")
 
     st.markdown("""
-    Mayor Brandon Johnson's **Protecting Chicago** budget delivers an historic half a billion dollar TIF surplus to our schools. A “no” vote will withhold these resources from our classrooms. Use our <i>Protecting Chicago Schools Calculator</i> to see how much TIF surplus revenue each school would lose with a "no" vote and how many positions could be cut mid-year. Look it up by school or ward, and then [tell your Alder](https://www.ctulocal1.org/posts/alder-letters-budget-2025): "vote <b>yes</b> for our students!"      
+    Mayor Brandon Johnson's **Protecting Chicago** budget delivers an historic half a billion dollar TIF surplus to our schools. A “no” vote will withhold these resources from our classrooms. Use the <i>Protecting Chicago Schools Calculator</i> to see how much TIF surplus revenue each school would lose with a "no" vote and how many positions could be cut mid-year. Look it up by school or ward, and then [tell your Alder](https://www.ctulocal1.org/posts/alder-letters-budget-2025): "vote <b>yes</b> for our students!"      
     """, unsafe_allow_html=True)
 
 # Add a sidebar with methodology
