@@ -43,13 +43,13 @@ def main():
         initial_sidebar_state="collapsed"
     )
 
-    # hide Streamlit share profile/avatar elements (matches obfuscated class names)
+    # hide Streamlit share/profile avatar — CSS + JS (handles elements added later)
     st.markdown("""
     <style>
-    /* match obfuscated profile container / preview and creator avatar */
+    /* fallback CSS to hide common targets */
+    [data-testid="appCreatorAvatar"],
     div[class*="profileContainer"],
     div[class*="profilePreview"],
-    img[data-testid="appCreatorAvatar"],
     a[href*="share.streamlit.io/user/"],
     a[href*="share.streamlit.io"] {
         display: none !important;
@@ -63,6 +63,28 @@ def main():
     }
     </style>
     """, unsafe_allow_html=True)
+
+    import streamlit.components.v1 as components
+    components.html("""
+    <script>
+    (function(){
+      function hideProfile(){
+        const selectors = [
+          'img[data-testid="appCreatorAvatar"]',
+          'div[class*="profileContainer"]',
+          'div[class*="profilePreview"]',
+          'a[href*="share.streamlit.io/user/"]',
+          'a[href*="share.streamlit.io"]'
+        ];
+        selectors.forEach(s => document.querySelectorAll(s).forEach(el => el.remove()));
+      }
+      hideProfile();
+      // watch for elements injected after initial render
+      const obs = new MutationObserver(() => hideProfile());
+      obs.observe(document.body, { childList: true, subtree: true });
+    })();
+    </script>
+    """, height=1)
 
     st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
