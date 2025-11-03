@@ -212,22 +212,22 @@ def main():
             "Percent Non-White": "{:.0%}"}),
             hide_index=True)
 
-        st.markdown("""
-        <style>
-        .small-text {
-            font-size: 0.8em; /* You can adjust this to 0.7em or 0.9em as needed */
-            line-height: 1.4;
-        }
-        </style>
+    st.markdown("""
+    <style>
+    .small-text {
+        font-size: 0.8em; /* You can adjust this to 0.7em or 0.9em as needed */
+        line-height: 1.4;
+    }
+    </style>
 
-        <div class="small-text">
-        <b>Methodology</b><br><br>
-        <i>“Dollars Lost”</i> refers to the potential TIF surplus revenue that a “no” vote would withhold from schools. It is calculated by multiplying Mayor Brandon Johnson’s historic TIF surplus—of which $552 million is allocated to CPS—by each school’s budget share (that school’s budget as a percentage of the total CPS budget for schools).<br><br>
-        <i>“Positions Cut”</i> refers to the potential mid-year cuts that a “no” vote would make necessary to balance CPS’s budget. It is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to achieve the savings of one. These calculations use the Chicago Board of Education’s budgeted $387 million in TIF surplus revenue as the basis for the cuts.<br><br>
-        <b>Data sources</b><br><br>
-        Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
-        </div>
-        """, unsafe_allow_html=True)
+    <div class="small-text">
+    <b>Methodology</b><br><br>
+    <i>“Dollars Lost”</i> refers to the potential TIF surplus revenue that a “no” vote would withhold from schools. It is calculated by multiplying Mayor Brandon Johnson’s historic TIF surplus—of which $552 million is allocated to CPS—by each school’s budget share (that school’s budget as a percentage of the total CPS budget for schools).<br><br>
+    <i>“Positions Cut”</i> refers to the potential mid-year cuts that a “no” vote would make necessary to balance CPS’s budget. It is calculated by dividing school-level TIF surplus revenue by 100,000 (the average per-position dollar amount) and multiplying by 2. We multiply by 2 because it takes twice as many position cuts to achieve the savings of one. These calculations use the Chicago Board of Education’s budgeted $387 million in TIF surplus revenue as the basis for the cuts.<br><br>
+    <b>Data sources</b><br><br>
+    Fiscal year 2026 budget data was FOIA'd from Chicago Public Schools (CPS). Student counts and demographics are from CPS's Racial/Ethnic Report for school year 2025.
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
