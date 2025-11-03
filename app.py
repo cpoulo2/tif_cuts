@@ -43,7 +43,6 @@ def main():
         initial_sidebar_state="collapsed"
     )
 
-<<<<<<< HEAD
     st.markdown("""
     <style>
     [class*="profilePreview"],
@@ -55,11 +54,6 @@ def main():
     """, unsafe_allow_html=True)
 
     st.header("Protecting Chicago Schools Calculator")
-=======
-    st.image("logo.png",width="stretch")
-
-#    st.header("Protecting Chicago Schools Calculator")
->>>>>>> 29d4f115eddde01f0cacf067bb516ee6831d6bc6
     st.subheader("What a 'No' Vote Costs Our Schools")
 
     st.markdown("""
