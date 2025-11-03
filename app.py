@@ -38,6 +38,16 @@ def main():
 
     st.set_page_config(page_title="TIF Surplus Tool", layout="centered")
 
+    st.markdown("""
+    <style>
+    [class*="profilePreview"],
+    img[data-testid="appCreatorAvatar"],
+    a[href*="share.streamlit.io/user/cpoulo2"] {
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
     st.header("Protecting Chicago Schools Calculator")
     st.subheader("What a 'No' Vote Costs Our Schools")
 
