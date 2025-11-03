@@ -43,12 +43,23 @@ def main():
         initial_sidebar_state="collapsed"
     )
 
+    # hide Streamlit share profile/avatar elements (matches obfuscated class names)
     st.markdown("""
     <style>
-    [class*="profilePreview"],
+    /* match obfuscated profile container / preview and creator avatar */
+    div[class*="profileContainer"],
+    div[class*="profilePreview"],
     img[data-testid="appCreatorAvatar"],
-    a[href*="share.streamlit.io/user/cpoulo2"] {
+    a[href*="share.streamlit.io/user/"],
+    a[href*="share.streamlit.io"] {
         display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
     </style>
     """, unsafe_allow_html=True)
