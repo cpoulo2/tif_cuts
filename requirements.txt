@@ -4,3 +4,5 @@ numpy
 requests
 geopandas
 shapely
+jinja2
+pdfkit

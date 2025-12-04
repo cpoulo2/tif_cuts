@@ -1,0 +1,137 @@
+/* Flyer Styles */
+
+/*
+@page {
+    size: 8.5in 11in;
+    margin: 0.5in;
+}
+*/
+h1,h2 {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 2;
+}
+
+/* Section headings with top margin */
+h2 {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 9in;
+    max-width: 9in;
+    margin: 0 auto;
+    padding: 0.5in;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+ul.circle-bullets {
+    list-style-type: circle;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.column {
+    flex: 1;
+}
+
+/* Alternating colors for PROTECTING CHICAGO SCHOOLS */
+.column_a h1 {
+    color: white;
+    text-shadow: -1.5px -1.5px 0 red, 1.5px -1.5px 0 red, -1.5px 1.5px 0 red, 1.5px 1.5px 0 red;
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: -10px;
+    line-height: 1.1;
+}
+
+.column_a h1>span {
+    color: red;
+    text-shadow: none;
+    font-size: 32px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.column_b h1 {
+    color: white;
+    text-shadow: -1.5px -1.5px 0 red, 1.5px -1.5px 0 red, -1.5px 1.5px 0 red, 1.5px 1.5px 0 red;
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: -10px;
+    line-height: 1.1;
+    background-color: #fff0f0;
+    border: 5px solid red;
+    padding: 10px;
+    margin: 20px;
+}
+
+.column_b h1>span {
+    color: red;
+    text-shadow: none;
+    font-size: 32px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+/* Logo column - smaller width */
+.column_c {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo {
+        width: 150%;
+        max-width: 200px;
+    height: auto;
+}
+
+
+/* Add footer top margin */
+footer {
+    position:absolute;
+    bottom: 0;
+    font-size:  16px;
+    font-style:italic;
+
+}
+
+
+    .columns {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    .columns > div {
+        display: inline-block;
+        width: 25%;
+        margin: 0 2%;
+    }
+    .columns div.column_a {
+        width: auto;
+    }
+    .logo {
+        max-width: 180px;
+    }
+
+

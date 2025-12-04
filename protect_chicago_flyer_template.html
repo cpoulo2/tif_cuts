@@ -1,0 +1,195 @@
+<head>
+    <title>Protecting Chicago Ward {{ward}} Fact Sheets</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="\cropped-CTUseal-black-on-white-32x32.png">
+    <style>
+        /* Flyer Styles */
+        @page {
+            size: 8.5in 11in;
+            margin: 0.5in;
+        }
+        
+        h1,h2 {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 2;
+        }
+
+        /* Section headings with top margin */
+        h2 {
+            margin-top: 50px;
+            font-size: 20px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            width: 7.5in;
+            max-width: 7.5in;
+            min-height: 10in;
+            margin: 0 auto;
+            padding: 0.5in;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-direction: row;
+        }
+
+        .body {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        ul.circle-bullets {
+            list-style-type: circle;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        /* Alternating colors for PROTECTING CHICAGO SCHOOLS */
+        .column_a h1 {
+            color: white;
+            text-shadow: -1.5px -1.5px 0 red, 1.5px -1.5px 0 red, -1.5px 1.5px 0 red, 1.5px 1.5px 0 red;
+            font-size: 35px;
+            margin-top: 0;
+            margin-bottom: -10px;
+            line-height: 1.1;
+        }
+
+        .column_a h1>span {
+            color: red;
+            text-shadow: none;
+            font-size: 32px;
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+
+        .column_b h1 {
+            color: white;
+            text-shadow: -1.5px -1.5px 0 red, 1.5px -1.5px 0 red, -1.5px 1.5px 0 red, 1.5px 1.5px 0 red;
+            font-size: 35px;
+            margin-top: 0;
+            margin-bottom: -10px;
+            line-height: 1.1;
+            background-color: #fff0f0;
+            border: 5px solid red;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .column_b h1>span {
+            color: red;
+            text-shadow: none;
+            font-size: 32px;
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+
+        /* Logo column - smaller width */
+        .column_c {
+            flex: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 150%;
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Add footer top margin */
+        footer {
+            position: absolute;
+            bottom: 0in;
+            left: 0.5in;
+            right: 0.5in;
+            font-size: 16px;
+            font-style: italic;
+            margin-top: 40px;
+        }
+
+        .columns {
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+        .columns > div {
+            display: inline-block;
+            width: 25%;
+            margin: 0 2%;
+        }
+        .columns div.column_a {
+            width: auto;
+        }
+        .logo {
+            max-width: 180px;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    <div class="columns">
+        <div class="column_a">
+            <h1>PROTECTING
+            <br><span>CHICAGO</span>
+            <br>SCHOOLS</h1>
+        </div>
+        <div class="column_b">
+            <h1><span>WARD</span>
+            <br>{{ward}}
+            <br><span>FACTS</span></h1>
+        </div>
+        <div class="column_c">
+            <img src="https://www.ctulocal1.org/wp-content/uploads/2018/09/CTUfull-blackred-1.png" alt="Chicago Teachers Union" class="logo">
+        </div>
+    </div>
+</h1>
+    <h2>
+        What we know (the big picture)
+    </h2>
+    <p>
+        <ul>
+            <li><b>Voters prefer investment over cuts</b>: When asked to choose between cutting education or taxing corporations, <mark>over 80% of Chicagoans choose taxing ultra-wealthy corporations.</mark></li>
+            <li><b>Even stronger support in communities of color</b>: <mark>More than 90% of Black and Latine voters prefer taxing corporations</mark> over cutting education.</li>
+            <li><b>Voters reward investment</b>: Polling shows <mark>voter favorability rises for Alders who support equitable funding increases</mark>.</li>
+            <li><b>Protecting Chicago invests&ndash;it doesn&apos;t cut</b>: Mayor Brandon Johnson&apos;s budget protects against Trump cuts and <mark>expands youth jobs, healthcare, and violence prevention by both making ultra-wealthy corporations pay a community safety surcharge and delivering a historic billion-dollar TIF surplus</mark> to schools, parks, and libraries.</li>
+            <li>Chicago&apos;s largest corporations received over $100 million in property tax cuts this year alone and will receive billions in Trump tax cuts.</li>
+            <li><b>A &apos;no&apos; vote means cuts</b>: <mark>Voting "no" to TIF surplus and the Community Safety Surcharge is a vote <i>for</i> cuts, period.</mark> A no vote takes money from youth jobs and programming, books for libraries, and gender-based violence reduction programs.</li>
+            <li><b>A &apos;yes&apos; vote means investing in our youth and city</b>: Voting for TIF surplus and the Community Safety Surcharge means investing in our schools and city by utilizing unused TIF funds and making ultra-rich corporations pay their fair share.</li>
+        </ul>
+    </p>
+    <h2>
+        What we know (about your ward)
+    </h2>
+    <p>
+       Here's a snapshot of how a "no" vote to TIF surplus and the Community Safety Surcharge will impact the <span style="color: red; font-weight: bold;">{{school_count}}</span> schools and <span style="color: red; font-weight: bold;">{{student_count}}</span> students in your ward: 
+    </p>
+    <p>
+        <b>SCHOOL FUNDING LOSS</b>.............<span style="color: red; font-weight: bold;">${{funding_loss}}</span>
+    </p>
+    <p>
+        <b>SCHOOL POSITION LOSS</b>...............<span style="color: red; font-weight: bold;">{{position_loss}}</span>
+    </p>
+
+<footer>
+    <p>These statistics can be found for your ward and others at our <a href="https://protectingchicagoschools.com/">Protecting Chicago Schools Calculator</a> (protectingchicagoschools.com).</a>
+</footer>
+</body>
+
